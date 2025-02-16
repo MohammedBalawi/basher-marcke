@@ -3,7 +3,7 @@ name: Build Flutter APK
 on:
   push:
     branches:
-      - main  # سيتم تشغيل هذا عند رفع أي كود إلى الفرع الرئيسي
+      - main  # سيتم تشغيله عند رفع كود جديد للفرع الرئيسي
 
 jobs:
   build:
@@ -16,17 +16,19 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.22.3"  # تأكد من تحديد إصدار Flutter الخاص بك
+          flutter-version: "3.10.0"  # تأكد من إصدار Flutter لديك
 
       - name: Install Dependencies
         run: flutter pub get
+
+      - name: Grant execute permission to gradlew
+        run: chmod +x android/gradlew
 
       - name: Build APK
         run: flutter build apk --release
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
-
         with:
           name: app-release.apk
           path: build/app/outputs/flutter-apk/app-release.apk
