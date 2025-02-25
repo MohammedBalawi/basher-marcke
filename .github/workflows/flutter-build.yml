@@ -3,7 +3,7 @@ name: Build Flutter APK
 on:
   push:
     branches:
-      - main  # تشغيل عند التحديث على الفرع الرئيسي
+      - main  # تشغيل GitHub Actions عند كل تحديث على الفرع الرئيسي
 
 jobs:
   build:
@@ -16,13 +16,12 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.0'  # تحديث إلى أحدث إصدار متوافق مع Dart
-          cache: true
+          flutter-version: '3.16.0'  # استخدم إصدار متوافق مع Dart 3.4.4
 
       - name: Setup Dart
         uses: dart-lang/setup-dart@v1
         with:
-          sdk: '3.4.4'  # تحديث إلى الإصدار المطلوب
+          sdk: '3.4.4'  # تثبيت إصدار Dart المتوافق مع مشروعك
 
       - name: Install dependencies
         run: flutter pub get
