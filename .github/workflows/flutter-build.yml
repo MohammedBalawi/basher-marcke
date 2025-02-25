@@ -16,7 +16,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.0'  # استخدم إصدار متوافق مع Dart 3.4.4
+          flutter-version: '3.22.3'  # استخدم إصدار متوافق مع Dart 3.4.4
 
       - name: Setup Dart
         uses: dart-lang/setup-dart@v1
